@@ -1,0 +1,45 @@
+bits 16
+
+.section _text
+start:
+mov ax,-1
+mov dx,0x12e0
+out dx,ax
+add dx,2
+out dx,ax
+add dx,2
+out dx,ax
+add dx,2
+out dx,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+mov ax,0
+out dx,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+xchg ax,ax
+in ax,dx
+or ax,ax
+jz .halt
+
+%include boot-step-2.asm
+%include essential-code-and-data.asm
