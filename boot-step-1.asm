@@ -1,7 +1,6 @@
 bits 16
 
-.section _text
-start:
+entry:
 mov ax,-1 ;command for auto-initialize
 mov dx,disk-access
 add dx,6 ;open command register
