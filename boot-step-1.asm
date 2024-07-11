@@ -3,7 +3,7 @@ bits 16
 .section _text
 start:
 mov ax,-1
-mov dx,0x12e0
+mov dx,disk-access
 out dx,ax
 add dx,2
 out dx,ax
