@@ -2,44 +2,34 @@ bits 16
 
 .section _text
 start:
-mov ax,-1
+mov ax,-1 ;command for auto-initialize
 mov dx,disk-access
-out dx,ax
-add dx,2
-out dx,ax
-add dx,2
-out dx,ax
-add dx,2
-out dx,ax
+add dx,6 ;open command register
+out dx,ax ;output command
+xchg ax,ax ;pad
+xchg ax,ax
+xchg ax,ax ;pad
+xchg ax,ax
+xchg ax,ax ;pad
+xchg ax,ax ;pad
+xchg ax,ax
+xchg ax,ax ;pad
 xchg ax,ax
 xchg ax,ax
 xchg ax,ax
+xchg ax,ax ;pad
+xchg ax,ax ;pad
 xchg ax,ax
 xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-mov ax,0
-out dx,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
-xchg ax,ax
+xchg ax,ax ;pad
 in ax,dx
-or ax,ax
-jz .halt
+not ax ;check status
+jz .halt ;halt if uninitialized
+jmp bs2 ;next stage
 
 %include boot-step-2.asm
-%include essential-code-and-data.asm
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;essential code and data will be placed in;;;;;
+;;;;last part of nested assembly inclusions;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
