@@ -2,7 +2,7 @@ bits 16
 
 entry:
 mov ax,-1 ;command for auto-initialize
-mov dx,disk-access
+mov dx,0x100
 add dx,6 ;open command register
 out dx,ax ;output command
 xchg ax,ax ;pad
