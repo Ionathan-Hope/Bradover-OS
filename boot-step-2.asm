@@ -1,17 +1,26 @@
 bits 16
 
 bs2:
-push dx
-mov dx,0
-mov cx,0
-mov ax,510
-mov bx,keyword1
-call inputspecific
-pop dx
-push dx
-mov dx,0
-mov cx,0
+mov es,0
+mov di,1024
+mov cx,256
+cld
+mov dx,0x100
 mov ax,0
-mov bx,keyword2
-call inputspecific
-pop dx
+out dx,ax
+add dx,2
+out dx,ax
+add dx,2
+getinit: out dx,ax
+add dx,2
+mov ax,9
+out dx,ax
+sub dx,6
+in ax,dx
+stosb
+out dx,ax
+add dx,4
+in ax,dx
+add ax,2
+loop getinit
+ret
