@@ -1,1 +1,1 @@
-We are moving to another repo. Please wait for a message.
+We are moving to [codeberg](https://codeberg.org/ennghallie)
